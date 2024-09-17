@@ -2,20 +2,16 @@
 
 #5. Write a shell script to print fibonacci series upto entered value N.
 
-fibo_series(){
-    local num=$1
-    if [ $num -eq 0 ]; then 
-    echo 0
-    elif [ $num -eq 1 ]; then 
-    echo 1
-    else
-    local prev1=$(expr $num - 1)
-    local prev2=$(expr $num - 2)
-    echo $(expr $prev1 + $prev2)
-    fi
-}
+read -p "Enter number to fibonacci upto n :" num
 
-print_fibo(){
-    local num=$1
-    
-}
+first=0
+second=1
+index=0
+
+while [ $num -gt $index ]; do
+third=$(($first + $second))
+echo  "$first"
+first=$second
+second=$third
+index=$(( $index + 1 ))
+done
