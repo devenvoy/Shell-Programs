@@ -70,9 +70,9 @@ e)
     ;;
 esac
 
-read -p "Enter (y) to continue or (n) to Exit : " again
+read -p "Enter (y) to continue or (*) to Exit : " again
 if [[ ${again} == y ]]; then
-    bash "${0}"
+    sh "${0}"
 else
     exit 0
 fi
