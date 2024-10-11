@@ -39,7 +39,7 @@ grep '.' f1.txt
 h. Display lines having sdjic text in any case in file f1.txt:
 ``` sh
 grep -i 'sdjic' f1.txt
-``` sh
+``` 
 
 i. Display lines of file f1.txt having exactly 3 characters:
 ``` sh
