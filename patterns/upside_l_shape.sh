@@ -2,18 +2,18 @@
 
 # draw pattern
 << comment
-*
-**
-***
-****
-*****
+54321
+4321
+321
+21
+1
 comment
 
-for i in {1..5}
+for i in {5..1}
 do
-    for j in $(seq 1 $i)
+    for j in $(seq $i 1)
     do
-        echo -n "*"
+        echo -n "$j"
     done
     echo ""
 done
