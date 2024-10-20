@@ -19,3 +19,12 @@ do
     done 
 done < $file
 
+echo 
+
+# Using tr and xargs to reverse words
+tr ' ' '\n' < "$file" | rev | xargs -n1 echo
+
+echo
+
+# Read the file and reverse each word
+awk '{ for (i = 1; i <= NF; i++) print $i | "rev" }' "$file"
