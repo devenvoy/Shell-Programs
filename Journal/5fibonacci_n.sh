@@ -9,9 +9,9 @@ second=1
 index=0
 
 while [ $num -gt $index ]; do
-third=$(($first + $second))
-echo  "$first"
-first=$second
-second=$third
-index=$(( $index + 1 ))
+    third=$(($first + $second))
+    echo  "$first"
+    first=$second
+    second=$third
+    index=$(( $index + 1 ))
 done

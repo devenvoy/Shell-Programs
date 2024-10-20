@@ -1,0 +1,317 @@
+				        MARCH/APRIL  – 2012	
+  
+
+2]  Write a command to print lines which not contain TYBCA.
+=>   grep -rv "tybca" dept.lst
+
+3] Write a command to print lines 6 to 12.
+=>  sed -n ‘1,6p’ dept.lst
+
+4] Write a command to replace first occurrence of Surat with Vyara in each line.
+=>   sed  -i  “s/Surat/Vyara/” dept.lst
+
+5] Write a command to print content of file after deleting every ; .
+=>    tr  -d  ‘;’  <  dept.lst
+
+6] Write a command to sort on 3 column to 5.
+=>   sort -k3,5  dept.lst
+
+7] Write a command to convert small alphabets to capital alphabets.
+=>   tr 'a-z' 'A-Z' < dept.lst
+
+8] Write a command to print lines with line number which contains “Marketing”.
+=>  grep -n “marketing” dept.lst
+
+
+
+
+
+
+
+
+
+					SEP/OCT – 2012
+
+
+
+
+
+
+
+
+
+				      MARCH/APRIL – 2014
+
+1] Write a command to print first seven line of file.
+=>   head -7  emp
+
+2] Write a command to sort a line of file and also remove a repeated file.
+=>   sort emp | uniq
+
+3] Replaces all occurrences  of ‘SYBCA’  with  ‘TYBCA’  in 5th line of file fl.
+=>   sed '5s/SYBCA/TYBCA/g' fl
+
+4]  Count all occurrences of ‘TYBCA’ in studlst.
+=>   grep -o 'TYBCA' studlst | wc -l
+5] Replace ‘kernel’ with ‘kernel architecture’ using remember pattern of sed utility.
+=>  sed 's/\(kernel\)/\1 architecture/g' emp
+
+6] To run utility X1 at 9:00 AM.
+=>   chmod +x X1
+
+7] Write a command to locate the ‘Unix’ ignoring case.
+=>   grep -i 'Unix' studlst
+
+8] Write a command to display occurrences of string ‘tybca’.
+=>  grep 'tybca' studlst
+
+9] Write a command to display line which start with ‘The’.
+=>   grep '^The' studlst
+
+
+10] Write a command to display line which end with ‘India’.
+=>  grep 'India$' studlst
+
+11] Write a command to print first sixth line of file.
+=>  head -6 studlst
+
+
+				      MARCH/APRIL – 2015
+
+~ Write command using sed or grep for the following.
+
+1] Display all files in current directory where the first character is numeric and the last    
+     character is not alphabetic.
+=>  ls | grep '^[0-9].*[^a-zA-Z]$'
+
+2] To count number of words in line 40 thought 60 of file fl.txt
+=>  sed -n '40,60p' fl.txt | wc -w
+
+3] To list file names consist of only 4 digits.
+=>  ls|grep -w '[0-9]\{4\}' 
+
+4] To display lines beginning with alphabets of a file X1.
+=>  grep '^[A-Za-z]' X1
+
+5] Display all blank lines between line 20 and 30 of file X1.
+=>  sed -n '20,30p' X1 | grep -E '^$' 
+
+6] Display lines beginning either with alphabet or digit from file X1.
+=>  sed -n '^[A-Za-z0-9]' X1
+
+7] Display the lines that do not contain 'Unix'.
+=>  sed -n '/Unix/!p' X1
+
+8] Display the number of occurrence of the pattern ‘director’.
+=>  sed -n '/director/p' emp | wc -l
+
+9] Display lines having exactly 50 character of file X1.
+=>  grep -E '^.{50}$' X1
+
+10] Write a command to append a dashed line after each line of file X1.
+=>  sed 's/$/----' X1
+
+
+~ Write a command using awk utility.
+1] Print the even number line in data file.
+=>  awk 'NR % 2 == 0' data
+
+2] Print the sums of the fields of every line in file fl.
+=>  awk '{sum=0; for(i=1;i<NF;i++) sum+=$i; print sum}' fl
+
+3] Display those words whose length greater than 10 characters and consist of digits only.
+=>  awk '{for (i=1; i<=NF; i++) if (length($i) > 10 && $i ~ /^[0-9]+$/) print $i}' X1
+
+4] Write awk script to print 10 to 1 using while loop.
+=>  awk 'BEGIN {i=10; while (i>=1) {print i; i--}}'
+
+5] Print lines no 18 to 30 from file fl.txt.
+=>  awk 'NR>=18 && NR<=30' fl.txt
+
+
+6] Count the total no. of lines in a file.
+=>  awk 'END {print NR}' fl.txt
+
+7] Count occurrence of pattern ‘Unix Operating System’ in file fl.
+=>  awk '{count += gsub(/Unix Operating System/, "")} END {print count}' fl
+
+8] Print the last field of the last line.
+=>  awk 'END {print $NF}' fl
+
+
+				      OCT/NOV – 2015
+
+1] Display last word of each line from a file xl.
+=>  sed 's/ .*//' xl | rev | cut -d' ' -f1 | rev
+2] To count number of characters in first line of file xl.
+=>  head -n 1 xl | wc -m
+
+3] Display all lines that start with ‘let’, from a file xl. The letter l , e or t in any case.
+=>  grep -i '^let' xl
+
+~ Write command using sed:
+
+1] Display three lines starting from 5th line of file Xl.
+=>  sed -n '5,7p' xl
+
+2] Display all line before string ‘Unix’ from file Xl.
+=>  sed '/Unix/q' xl
+
+				      MARCH/APRIL – 2016
+
+1] To remove duplicate lines from file X1.
+=>   sort X1 | uniq > X1_deduped
+
+2] Count number of characters in first three lines of file X1.
+=>  head -n 3 X1 | wc -m
+
+3] Display files of current directory whose first character is not digit.
+=>  ls | grep -v '^[0-9]'
+
+4] Remove a file forcibly which do not have write permission.
+=>  rm -f filename
+5] To display number of processes.
+=>  ps -e | wc -l
+
+~ Write command using awk:
+
+1] Print all user/login names available in/etc/password.
+=>  awk -F: '{print $1}' /etc/passwd
+
+2] Print the fields 2,3,4 and 6 from test.txt file which contains the pattern ‘comp’.
+=>  awk '/comp/ {print $2, $3, $4, $6}' test.txt
+
+3] Prints all lines containing string ‘for’ in test.txt file.
+=>  awk '/for/' test.txt
+
+
+
+				      OCT/NOV – 2016
+
+1]   To concatenate two files f1 and f2 including  some text to be inserted from keyboard after content of f1.
+=>   cat f1 > combined.txt       
+       cat >> combined.txt         
+       cat f2 >> combined.txt      
+
+2] To display all files having last character of digit.
+=>  ls | grep '[0-9]$'
+
+3] Remove directory tree dir/dir2/dir3 using single command.
+=>  rm -rf dir/dir2/dir3
+4] Write a command to display system processes.
+=>  ps aux
+
+5] Assign value of 10th positional parameter to a variable x.
+=>  x=$10
+
+~ Write command using sed or grep:
+
+1] Display line before a line that contains pattern xyz in f1.txt.
+=>  grep -B 1 'xyz' f1.txt | head -n -1
+
+2] Display the lines which are starting with 2 at the beginning.
+=>   grep '^2' filename
+
+
+3] To remove all leading space from a file f1.
+=>  sed 's/^[ \t]*//' f1
+~ Write command using awk utility:
+
+1] Display those words whose length are greater than 10 characters and consist of alphabet only.
+=>  awk '{for (i=1; i<=NF; i++) if (length($i) > 10 && $i ~ /^[a-zA-Z]+$/) print $i}' filename
+
+2] Print odd numbers of words in each line.
+=>  awk '{for (i=1; i<=NF; i+=2) print $i}' filename
+
+3] Count occurrences of pattern ‘Operating System’ in file f1.
+=>  grep -o 'Operating System' f1 | wc -l
+
+
+				      NOV/DEC – 2016
+
+1]  Write a command to sort a line of file and also remove a repeated line.
+=>  sort f1 | uniq > temp && mv temp f1
+
+2]  To count number of characters in last line of line X1.
+=>   tail -n 1 X1 | wc -m
+
+				      MARCH/APRIL – 2017
+
+1] Display the contents of last modified file.
+=>  ls -t | head -n 1 | xargs cat
+
+2] To display contents of top 3 largest files in a working directory.
+=>  ls -Sh | head -n 3 | xargs cat
+
+3] To display all files of current directory whose 1st character is not digit.
+=>  ls | grep -v '^[0-9]'
+
+4] To display inode number of all files of current directory.
+=>  ls -i
+
+~ Write command using sed or grep:
+
+1] Display all files which have read and write permission for the group.
+=>  ls -l | grep '^.-..rw..'
+2] Find out the number of the character ? Occur in a file f1.txt.
+=>  grep -o '?' f1.txt | wc -l
+
+4] To delete all vowels from the file x1.txt.
+=>  sed -i 's/[aeiouAEIOU]//g' x1.txt
+
+5] Replacing the word unix with UNIX in between 5th to 10th line including both.
+=>  sed -i '5,10s/unix/UNIX/g' x1.txt
+
+
+				      OCT/NOV – 2017
+
+1] Replaces all occurrences of ‘SYBCA’ with ‘TYBCA’ in 5th line of file f1.txt.
+=>   sed '5s/SYBCA/TYBCA/g' f1.txt
+
+2] Write a command to sort a line of file and also remove repeated line.
+=>  sort f1.txt | uniq
+
+3] To run a utility X1 at 11:00 AM.
+=>  0 11 * * * /path/to/X1
+
+4] Write a command to find word ‘Unix Os’ ignoring case.
+=>  grep -i 'Unix Os' filename
+
+5] Display those words whose length greater than 4 characters and consist of digits only.
+=>  awk '{for (i=1; i<=NF; i++) if (length($i) > 4 && $i ~ /^[0-9]+$/) print $i}' filename
+
+
+				      MARCH/APRIL – 2018
+
+~ Write command using sed:
+
+1] To count number of words in line 10 to 20 of file f1.txt.
+=>  sed -n '10,20p' f1.txt | wc -w
+
+2] To add .5 in the marks field of student.tct file (eg. 30 should be replaced by 30.5).
+=>  sed -i 's/\b[0-9]\{1,\}\b/&.5/g' student.txt
+
+3] Write a command to replace first occurrence of ‘Delhi’ with ‘Mumbai’ in each line of dept.lst.
+=>  sed 's/Delhi/Mumbai/' dept.lst
+
+				      NOV/DEC – 2018
+
+1] Counts all occurrence of  ‘SYBCA’ in the file studlist.
+=>  grep -o 'SYBCA' studlist | wc -l
+
+2] Display the processes of user ‘TYBCA101’.
+=>  ps -u TYBCA101
+
+3] Count number of character in first five lines of file studlist.
+=>  head -n 5 studlist | wc -m
+
+4] Display file of directory whose first character is not digit.
+=>  ls | grep -v '^[0-9]'
+~ Write command using awk:
+
+1] Count occurrences of pattern ‘UNIX’ in file f1.txt.
+=>  awk '{count += gsub(/UNIX/, "")} END {print count}' f1.txt
+
+2] Display those words whose length is greater than 5 characters and consist of digits only.
+=>  awk '{for (i=1; i<=NF; i++) if (length($i) > 5 && $i ~ /^[0-9]+$/) print $i}' filename
+

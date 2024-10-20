@@ -1,0 +1,20 @@
+The quick brown fox jumps over the lazy dog
+This is a test file for Computer Science
+UNIX is a powerful operating system
+The sky is blue and clear
+Mathematics is essential for Computing
+Learning about UNIX is fun
+This line does not end with UNIX
+Testing commands in UNIX is useful
+Special characters include !@#$%^&*()
+LeTst line here contains UNIX endif
+10he quick brown fox jumps over the lazy dog
+1This is a test file for Computer Science
+UNIX is a powerful operating system
+lET The sky is blue and clear
+Mathematics is essential for Computing
+let Learning about UNIX is fun
+This line does not end with UNIX
+Testing commands in UNIX is useful
+Special characters include !@#$%^&*()
+Last line here contains UNIX

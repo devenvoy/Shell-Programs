@@ -11,9 +11,6 @@ do
     r=$(expr $num % 10)
     sum=$(expr $sum + $r)
     num=$(expr $num / 10)    
-#    num= `expr $num / 10`
-#    r= `expr $num % 10`
-#    sum=`expr $sum + $r`
 done
 
 echo "Sum of digits: $sum"

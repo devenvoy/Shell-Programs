@@ -1,0 +1,247 @@
+
+				      MARCH/APRIL – 2019
+
+1] Display string in upper case of the file emp.txt
+=>  tr '[:lower:]' '[:upper:]' < emp.txt
+
+2] To run a utility pr l at 11:00 AM.
+=>  0 11 * * * /path/to/utility pr l
+
+3] To display number of processes of the user TYBCA10.
+=>  ps -u TYBCA10 | wc -l
+
+				      OCT/NOV – 2019
+
+~ Write command using sed or grep:
+
+1] Write a command to replace ‘UIX KERNEL’ on line no.10 to 20.
+=>  sed -i '10,20s/UIX KERNEL/NEW STRING/g' filename
+
+2] To list file names consist of only 4 digits.
+=>  ls | grep -E '^[0-9]{4}$'
+
+3] Display the lines which are not starting with 2 at the beginning.
+=>  grep -v '^2' filename
+
+4] Display lines beginning either with alphabet or digit from file test.txt.
+=>  grep '^[a-zA-Z0-9]' test.txt
+
+5] Display all file name containing only digits in a filename.
+=>  ls | grep -E '^[0-9]+$'
+
+6] Display two lines starting from 4th line of file test.txt.
+=>  sed -n '4,5p' test.txt
+=>  awk 'NR>=4 && NR<=(3+x)' x=<number_of_lines> test.txt
+
+7] To display lines beginning with alphabets of a file test.txt.
+=>  grep '^[a-zA-Z]' test.txt
+
+8] To count number of words in line 10 thought 20 of file test.txt.
+=>  sed -n '10,20p' test.txt | wc -w
+
+
+1] Print the sums of the fields of every line in file f1.
+=>  awk '{sum=0; for(i=1; i<=NF; i++) sum += $i; print sum}' f1
+
+2] Count the total no. of lines in a file.
+=>  wc -l filename | awk '{print $1}'
+
+3] Count occurrence of pattern ‘UNIX Operating System’ in file f1.
+=>  grep -o 'UNIX Operating System' f1 | wc -l
+				
+1] Write a command to display all blank lines between line 20 and 30 of file test.txt.
+=>  sed -n '20,30{/^$/p}' test.txt
+
+2] Write a command to run a utility * 1 at 10:00 AM.
+=>  $ contrab 10:00*1
+
+				      OCTOBER – 2023
+
+1] Display file name of current directory whose name starts with an alphabet and ends with digit.
+=>  ls | grep -E '^[a-zA-Z].*[0-9]$'
+=>  ls | awk '/^[A-Za-z].*[0-9]$/ { print }'
+
+
+1] Print even numbers of words in each line of file test.txt.
+=>  awk '{for (i=2; i<=NF; i+=2) printf "%s ", $i; print ""}' test.txt
+
+2] Display those words length is greater than 6 characters and consist of only alphabets.
+=>  awk '{
+    for (i=1; i<=NF; i++) 
+    if (length($i) > 6 && $i ~ /^[a-zA-Z]+$/) print $i
+    }' filename
+
+3] Print lines 6 to 12 from file test.txt.
+=>  awk 'NR >= 6 && NR <= 12' test.txt
+
+4] Count the all occurrence of pattern ‘TYBCA’ in file test.txt.
+=>  awk '{count += gsub(/TYBCA/, "")}
+ END {print count}' test.txt
+
+5] Display lines of file f1 in reverse.
+=>  awk '{
+        lines[NR] = $0
+    } END 
+    {
+        for (i = NR; i > 0; i--) print lines[i]
+    }' f1
+
+6] Display lines of file f1 in uppercase.
+=>  awk '{print toupper($0)}' f1
+
+				      MARCH – 2024
+
+~ Write command using sed or grep:
+
+1] To display lines of file f1 that begins with ‘The’.
+=>  grep '^The' f1
+
+2] Count total numbers of blank lines of file f1.
+=>  grep -c '^$' f1
+=>  grep -cv '.' f1
+
+3] Display lines of file f1 which have exactly 4-characters.
+=>  grep '^.\{4\}$' f1
+=>  sed -n '/^.\{4\}$/p' f1
+
+4] Do not display line number 3 to 5 of file f1.
+=>  sed '3,5d' f1
+
+5] Insert blank line after each line of the file f1.
+=>  sed 'G' f1
+=> awk '{ print $0; print ""} ' x1.txt
+
+1] Count number of vowels in file f1.
+=>  awk '{count += gsub(/[aeiouAEIOU]/, "")} END {print count}' f1
+
+2] Display all palindrome word in file f1.
+=>  awk '
+function is_palindrome(word) {
+    	len = length(word)
+    	for (i = 1; i <= len / 2; i++) {
+        		if (substr(word, i, 1) != substr(word, len - i + 1, 1))
+           	 		return 0
+   	 	}
+    		return 1
+}
+
+{
+    	for (i = 1; i <= NF; i++) {
+       		if (is_palindrome($i)) {
+            			print $i
+        		}
+    	}
+}
+    ' f1
+
+              
+1] To print first three lines of file Tybca.
+=>    head -3 Tybca
+
+2] To sort file by last access time.
+=>   ls  -ltu
+
+3] To print field 1 and 6 from file Tybca.
+=>   cut -d “|” -f 1,6 Tybca
+
+4] To print unique line of file Tybca.
+=>   sort Tybca | uniq
+
+5] To print frequency of each line from file Tybca.
+=>   sort Tybca | uniq -c
+
+6] To find file having size greater than five.
+=>   find . -type f -size +5
+
+7] To find a file having which have .c extention.
+=>  find . -type f -name "*.c"
+
+1] Write a command to print lines which contain TYBCA.
+=>   grep "TYBCA" dept.lst
+
+1] Write a command to count number of characters in first five lines of file X1.
+=>     head -n 5 X1 | wc -c
+
+2] To replace the word Computer with Computing of file X1.
+=>     sed -i ‘s/Computer/Computing/’ X1
+=>  awk '{
+    gsub(/Computer/,"Compuing"); 
+    print $0
+    }' x1.txt 
+
+3] Display lines whose last word Is UNIX of file X1.
+=>     sed -n $'/UNIX/p' X1
+=>     grep -i "unix$" x1.txt
+
+4] Display lines starting from 10th line to the end of file X1.
+=>   sed -n -e '3,$p'  X1
+=>   awk 'NR >= 10 { print $0 }' x1.txt 
+
+5] To delete all the special characters from file X1.
+=>  sed -i 's/[^a-zA-Z0-9]//g'  X1
+=>  awk '{ gsub(/[^a-zA-Z0-9]/, ""); print }' X1
+
+6] To display lines beginnings with alphabets of a file X1.
+=>  grep '^[A-Za-z]'  X1
+
+7] To remove filename as X1.
+=>   rm -i X1
+
+8] To display last line of file X1.
+=>  sed -n ‘$p’ X1
+=>   awk 'END { print }' x1.txt
+
+				      MARCH/APRIL – 2013
+
+1] Display lines between 10 to 15 from files x1.
+=>   sed -n ’10,15p’ X1
+=>   awk 'NR==10,NR==15{ print $0}' x1.txt
+=>   head -15 x1.txt | tail +10
+
+2] Display last word of each line from a file X1.
+=>     awk '{print $NF}' X1
+
+3] To count number of characters in last line of line X1.
+=>      tail -1 x1 | wc -c
+
+4] To count number of words in line 40 throught 60 of file f1.txt
+=>      sed -n '3,5p' f1.txt | wc -w
+
+5] Display all line that start with ‘let’, from a file x1.1 , e or t may be in any case.
+=>      grep '^l[eE][tT]' X1.txt
+
+6] Display the lines which are not starting with 2 at the beginning.
+=>   grep -v '^2' X1
+
+7] Display lines having exactly 50 character of file X1.
+=>    grep ‘^.{50}$’ X1
+
+8] Count number of blank lines in file X1.
+=>    grep -c '^$' X1
+=>   grep -cv  '.' x1.txt
+
+9] Display lines having at least one * character in file X1.
+=>    grep '*' X1
+
+10] Display lines from file X1 that containing string “UNIX” or “unix” or “Unix”.
+=>     grep -i 'unix' X1
+
+11] Display the directory listing.
+=>     ls -l
+
+12] Substitute ‘endif’ with ‘fi’ on line 10 of file X1.
+=>     sed '10s/endif/fi/' X1
+=>    awk 'NR==10 { gsub("endif","fi"); print }' x1.txt
+
+13] Display two lines starting from 7th line of file X1.
+=>    sed -n '7,8p' X1
+
+14] Display all line before string Unix from file X1.
+=>    sed '/Unix/q' X1se
+
+15] Display lines beginning either with alphabet or digit from file X1.
+=>    sed -n '/^[a-zA-Z0-9]/p' X1
+
+16] Display that line which do not contain “Unix”.
+=>    sed -n ‘/Unix/!p’ X1.
+=>    grep -iv 'unix' x1.txt
