@@ -35,18 +35,12 @@ echo "Total chars : $chars"
 awk '
 {
     lines++;
-    # Increment line count
     words += NF;                     
-    # Add the number of fields (words) in the current line
     chars += length($0);
-    # Add the length of the current line to character count
 }
 END {
     print "Total lines: " lines;     
-    # Print total lines
     print "Total words: " words;
-    # Print total words
     print "Total chars: " chars;
-    # Print total characters
 }
 ' "$file"
